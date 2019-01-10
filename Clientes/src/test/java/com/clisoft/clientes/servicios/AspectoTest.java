@@ -18,8 +18,6 @@ public class AspectoTest {
 	@Test
 	public void buscarTodosLosClienteSinOBJ() {
 
-		// TODO Auto-generated method stub
-
 		AnnotationConfigApplicationContext contextoSpring = new AnnotationConfigApplicationContext("com.clisoft.clientes.configuracion");;
 		IClienteServicio clienteSrv =  contextoSpring.getBean(IClienteServicio.class);
 		

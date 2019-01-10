@@ -1,0 +1,5 @@
+1. Arrancar la base de datos:
+ 		C:\Herramientas\db-derby\db-derby-10.13.1.1-bin\bin
+ 		Ejecutar startNetworkServer
+2. Con esto ya podemos consultar la BBDD en la pestaña dBeaver.
+3. Si hacemos un mvn install, nos ejecutará los test y creará la BBDDE

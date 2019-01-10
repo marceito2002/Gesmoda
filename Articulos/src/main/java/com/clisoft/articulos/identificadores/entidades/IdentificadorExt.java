@@ -2,6 +2,7 @@ package com.clisoft.articulos.identificadores.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -11,10 +12,12 @@ import javax.persistence.Table;
 @Table(name="T11XX1001")
 public class IdentificadorExt {
 
+//	@Id
+//	@Column(name="IDENTIFICADOR")
+//	private String identificador;
 	@Id
-	@Column(name="IDENTIFICADOR")
-	
-	private String identificador;
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="identificadorExt")
+	private Identificador identificador;
 	
 	@Column(name="DESCRIP_QUINTO_ORDEN")
 	private String desOrden5;
@@ -82,11 +85,12 @@ public class IdentificadorExt {
 	@Column(name="SERIE_TERCERA")
 	private String serie3;
 
-	public String getIdentificador() {
+
+	public Identificador getIdentificador() {
 		return identificador;
 	}
 
-	public void setIdentificador(String identificador) {
+	public void setIdentificador(Identificador identificador) {
 		this.identificador = identificador;
 	}
 

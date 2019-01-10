@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.clisoft.articulos.identificadores.entidades.Identificador;
+import com.clisoft.articulos.identificadores.negocio.IIdentificadorNegocio;
 import com.clisoft.articulos.identificadores.negocio.IdentificadorNegocio;
 
 
@@ -14,13 +15,13 @@ import com.clisoft.articulos.identificadores.negocio.IdentificadorNegocio;
 public class IdentificadorServicio implements IIdentificadorServicio {
 
 	
-
-	private IdentificadorNegocio identificadorNegocio;
+	private IIdentificadorNegocio identificadorNegocio;
 	
 
 	@Autowired	
-	public IdentificadorServicio(IdentificadorNegocio identificadorNegocio) {
+	public IdentificadorServicio(IIdentificadorNegocio identificadorNegocio) {
 		super();
+		this.identificadorNegocio = identificadorNegocio;
 	}
 
 	

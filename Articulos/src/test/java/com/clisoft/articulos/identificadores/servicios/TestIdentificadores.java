@@ -49,9 +49,9 @@ public class TestIdentificadores {
 		identificador.setIdentificador("01982881T");
 		identificador.setMarcaMvt("01");
 		identificador.setPrecioXVariante("S");
-		identificadorSrv.altaIdentificador(identificador);
+		//identificadorSrv.altaIdentificador(identificador);
 		
-		idenfizEXT.setIdentificador(identificador.getIdentificador());
+		//idenfizEXT.setIdentificador(identificador.getIdentificador());
 		idenfizEXT.setCodebarAuto("CODEBAR01");
 		idenfizEXT.setDesCaract1("DESCRIPCION CARACTERISTICA 1");
 		idenfizEXT.setDesCaract2("DESCRIPCION CARACTERISTICA 2");
@@ -79,7 +79,7 @@ public class TestIdentificadores {
 	@Test
 	public void borrarIdentificador() {		
 		crearUnArticulo();	
-		identificadorSrv.bajaIdentificador("3");
+		identificadorSrv.bajaIdentificador("01982881T");
 	}
 	
 	
@@ -87,8 +87,7 @@ public class TestIdentificadores {
 	public void modificarUnCliente() {
 		crearUnArticulo();
 		Identificador identificador = new Identificador();
-
-
+		identificador.setIdentificador("01982881T");
 		identificador.setCodMarca("MARCA MODIFICADA");
 		
 		
