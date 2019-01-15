@@ -14,10 +14,12 @@ public class IdentificadorExt {
 
 	@Id
 	@Column(name="IDENTIFICADOR")
+	//@OneToOne(mappedBy="identificadorExt")
 	private String identificador;
-//	@Id
-//	@OneToOne(fetch=FetchType.LAZY, mappedBy="identificadorExt")
-//	private Identificador identificador;
+
+	
+	@OneToOne(mappedBy="identificadorExt")
+    private Identificador identificadorINX;
 	
 	@Column(name="DESCRIP_QUINTO_ORDEN")
 	private String desOrden5;
@@ -86,13 +88,13 @@ public class IdentificadorExt {
 	private String serie3;
 
 
-//	public Identificador getIdentificador() {
-//		return identificador;
-//	}
-//
-//	public void setIdentificador(Identificador identificador) {
-//		this.identificador = identificador;
-//	}
+	public Identificador getIdentificadorINX() {
+		return identificadorINX;
+	}
+
+	public void setIdentificadorINX(Identificador identificadorINX) {
+		this.identificadorINX = identificadorINX;
+	}
 
 	public String getIdentificador() {
 		return identificador;

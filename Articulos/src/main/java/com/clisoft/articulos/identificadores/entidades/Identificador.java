@@ -2,6 +2,7 @@ package com.clisoft.articulos.identificadores.entidades;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,8 +25,9 @@ public class Identificador {
 	
 	@Column(name="FECHA")
 	private String fecha;	
-
-	@OneToOne (fetch=FetchType.LAZY)
+	
+//	@Id
+	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn(name="IDENTIFICADOR")
 	private IdentificadorExt identificadorExt;
 
@@ -63,6 +65,14 @@ public class Identificador {
 	@Column(name="GENERICO")
 	private String generico;
 
+	public String getIdentificador() {
+		return identificador;
+	}
+
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
+	}
+
 	public String getMarcaMvt() {
 		return MarcaMvt;
 	}
@@ -79,13 +89,6 @@ public class Identificador {
 		this.fecha = fecha;
 	}
 
-	public String getIdentificador() {
-		return identificador;
-	}
-
-	public void setIdentificador(String identificador) {
-		this.identificador = identificador;
-	}
 
 	public String getCodProv() {
 		return codProv;
@@ -184,12 +187,26 @@ public class Identificador {
 	}
 
 
-	
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((identificador == null) ? 0 : identificador.hashCode());
+		result = prime * result + ((MarcaMvt == null) ? 0 : MarcaMvt.hashCode());
+		result = prime * result + ((codColeccion == null) ? 0 : codColeccion.hashCode());
+		result = prime * result + ((codMarca == null) ? 0 : codMarca.hashCode());
+		result = prime * result + ((codOrden1 == null) ? 0 : codOrden1.hashCode());
+		result = prime * result + ((codOrden2 == null) ? 0 : codOrden2.hashCode());
+		result = prime * result + ((codOrden3 == null) ? 0 : codOrden3.hashCode());
+		result = prime * result + ((codProv == null) ? 0 : codProv.hashCode());
+		result = prime * result + ((desAmplia == null) ? 0 : desAmplia.hashCode());
+		result = prime * result + ((desOrden4 == null) ? 0 : desOrden4.hashCode());
+		result = prime * result + ((desTpv == null) ? 0 : desTpv.hashCode());
+		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
+		result = prime * result + ((generico == null) ? 0 : generico.hashCode());
+		result = prime * result + ((identificadorExt == null) ? 0 : identificadorExt.hashCode());
+		result = prime * result + ((precioXVariante == null) ? 0 : precioXVariante.hashCode());
 		return result;
 	}
 
@@ -202,18 +219,82 @@ public class Identificador {
 		if (getClass() != obj.getClass())
 			return false;
 		Identificador other = (Identificador) obj;
-		if (identificador == null) {
-			if (other.identificador != null)
+		if (MarcaMvt == null) {
+			if (other.MarcaMvt != null)
 				return false;
-		} else if (!identificador.equals(other.identificador))
+		} else if (!MarcaMvt.equals(other.MarcaMvt))
+			return false;
+		if (codColeccion == null) {
+			if (other.codColeccion != null)
+				return false;
+		} else if (!codColeccion.equals(other.codColeccion))
+			return false;
+		if (codMarca == null) {
+			if (other.codMarca != null)
+				return false;
+		} else if (!codMarca.equals(other.codMarca))
+			return false;
+		if (codOrden1 == null) {
+			if (other.codOrden1 != null)
+				return false;
+		} else if (!codOrden1.equals(other.codOrden1))
+			return false;
+		if (codOrden2 == null) {
+			if (other.codOrden2 != null)
+				return false;
+		} else if (!codOrden2.equals(other.codOrden2))
+			return false;
+		if (codOrden3 == null) {
+			if (other.codOrden3 != null)
+				return false;
+		} else if (!codOrden3.equals(other.codOrden3))
+			return false;
+		if (codProv == null) {
+			if (other.codProv != null)
+				return false;
+		} else if (!codProv.equals(other.codProv))
+			return false;
+		if (desAmplia == null) {
+			if (other.desAmplia != null)
+				return false;
+		} else if (!desAmplia.equals(other.desAmplia))
+			return false;
+		if (desOrden4 == null) {
+			if (other.desOrden4 != null)
+				return false;
+		} else if (!desOrden4.equals(other.desOrden4))
+			return false;
+		if (desTpv == null) {
+			if (other.desTpv != null)
+				return false;
+		} else if (!desTpv.equals(other.desTpv))
+			return false;
+		if (fecha == null) {
+			if (other.fecha != null)
+				return false;
+		} else if (!fecha.equals(other.fecha))
+			return false;
+		if (generico == null) {
+			if (other.generico != null)
+				return false;
+		} else if (!generico.equals(other.generico))
+			return false;
+		if (identificadorExt == null) {
+			if (other.identificadorExt != null)
+				return false;
+		} else if (!identificadorExt.equals(other.identificadorExt))
+			return false;
+		if (precioXVariante == null) {
+			if (other.precioXVariante != null)
+				return false;
+		} else if (!precioXVariante.equals(other.precioXVariante))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Identificador [MarcaMvt=" + MarcaMvt + ", fecha=" + fecha + ", identificador=" + identificador
-				+ ", identificadorExt=" + identificadorExt + ", codProv=" + codProv + ", codMarca=" + codMarca
+		return "Identificador [MarcaMvt=" + MarcaMvt + ", fecha=" + fecha + ", identificador=" + identificadorExt + ", codProv=" + codProv + ", codMarca=" + codMarca
 				+ ", codColeccion=" + codColeccion + ", codOrden1=" + codOrden1 + ", codOrden2=" + codOrden2
 				+ ", codOrden3=" + codOrden3 + ", desOrden4=" + desOrden4 + ", desAmplia=" + desAmplia + ", desTpv="
 				+ desTpv + ", precioXVariante=" + precioXVariante + ", generico=" + generico + "]";

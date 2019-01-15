@@ -15,6 +15,7 @@ import com.clisoft.articulos.identificadores.entidades.IdentificadorExt;
 public class TestIdentificadores {
 	private AnnotationConfigApplicationContext contextoSpring = null;
 	private IIdentificadorServicio identificadorSrv = null;
+	private Integer cont=0;
 	
 	@Before
 	public void iniciaContextoSpring() throws Exception {
@@ -28,10 +29,15 @@ public class TestIdentificadores {
 		contextoSpring.close();
 	}
 	
+	private String obtenerCodigoArticulo (){
+		String codigo ="T0198288A";
+		return codigo +  cont.toString();
+	}
+	
+	
 	@Test
 	public void crearUnArticulo() {
-
-
+		
 		Identificador identificador = new Identificador();
 		IdentificadorExt idenfizEXT = new IdentificadorExt();
 				
@@ -46,11 +52,9 @@ public class TestIdentificadores {
 		identificador.setDesTpv("Descripción para el TPV");
 		identificador.setFecha("20160101");
 		identificador.setGenerico("cod generico");
-		identificador.setIdentificador("01982881T");
+		identificador.setIdentificador(obtenerCodigoArticulo());
 		identificador.setMarcaMvt("01");
-		identificador.setPrecioXVariante("S");
-		//identificadorSrv.altaIdentificador(identificador);
-		
+		identificador.setPrecioXVariante("S");	
 		idenfizEXT.setIdentificador(identificador.getIdentificador());
 		idenfizEXT.setCodebarAuto("CODEBAR01");
 		idenfizEXT.setDesCaract1("DESCRIPCION CARACTERISTICA 1");
@@ -75,66 +79,68 @@ public class TestIdentificadores {
 		
 	}
 
-//	
-//	@Test
-//	public void borrarIdentificador() {		
-//		crearUnArticulo();	
-//		identificadorSrv.bajaIdentificador("01982881T");
-//	}
-//	
-//	
-//	@Test
-//	public void modificarUnCliente() {
-//		crearUnArticulo();
-//		Identificador identificador = new Identificador();
-//		identificador.setIdentificador("01982881T");
-//		identificador.setCodMarca("MARCA MODIFICADA");
-//		
-//		
-//		identificadorSrv.modificarIdentificador(identificador);
-//
-//		
-//	}
-//	
-//	@Test
-//	public void buscarTodosLosClienteSinOBJ() {
-//
-//		
-//		List<Identificador> listIdentificadores =identificadorSrv.buscarPorcodOrden3("02");				
-//		System.out.println("Busqueda de orden 02");
-//		for (Identificador identificadores: listIdentificadores){
-//			System.out.println("Cliente con ID " +identificadores.getIdentificador());
-//		}
-//		
-//	}
-//
-//	
-//	@Test
-//	public void buscarUnIdenficadorPorCodProveedor() {			
-//				
-//		List<Identificador> listIdenficadores=identificadorSrv.buscarPorycodProv("01");				
-//		System.out.println("Busqueda de un cliente por id");
-//		for (Identificador identificadores: listIdenficadores){
-//			System.out.println("Cliente con ID " +identificadores.getIdentificador());
-//		}
-//	}	
-//	
-//	
-//	
-//	
-//	@Test
-//	public void ComprobarMensajes() {
-//
-//		System.out.println("MENSAJE RECUJPERADO: " +
-//				contextoSpring.getMessage(
-//						"page.index.welcome", 
-//						new Object[]{"Victor"}, 
-//						Locale.getDefault()));
-//	
-//		System.out.println("MENSAJE RECUJPERADO: " +
-//				contextoSpring.getMessage(
-//						"page.index.title", 
-//						null, 
-//						Locale.getDefault()));		
-//	}	
+	
+	@Test
+	public void borrarIdentificador() {		
+		cont++;
+		crearUnArticulo();	
+	//	identificadorSrv.bajaIdentificador(obtenerCodigoArticulo());
+	}
+	
+	
+	@Test
+	public void modificarUnCliente() {
+		cont++;
+		crearUnArticulo();	
+		Identificador identificador = new Identificador();
+		identificador.setIdentificador(obtenerCodigoArticulo());
+		identificador.setCodMarca("MARCA MODIFICADA");
+		identificadorSrv.modificarIdentificador(identificador);
+
+		
+	}
+	
+	@Test
+	public void buscarTodosLosClienteSinOBJ() {
+		
+		cont++;
+		crearUnArticulo();	
+		List<Identificador> listIdentificadores =identificadorSrv.buscarPorcodOrden3("03");				
+		System.out.println("Busqueda de orden 02");
+		for (Identificador identificadores: listIdentificadores){
+			System.out.println("Cliente con ID " +identificadores.getIdentificador());
+		}
+		
+	}
+
+	
+	@Test
+	public void buscarUnIdenficadorPorCodProveedor() {			
+		cont++;
+		crearUnArticulo();
+		List<Identificador> listIdenficadores=identificadorSrv.buscarPorycodProv("01");				
+		System.out.println("Busqueda de un cliente por id");
+		for (Identificador identificadores: listIdenficadores){
+			System.out.println("Cliente con ID " +identificadores.getIdentificador());
+		}
+	}	
+	
+	
+	
+	
+	@Test
+	public void ComprobarMensajes() {
+
+		System.out.println("MENSAJE RECUJPERADO: " +
+				contextoSpring.getMessage(
+						"page.index.welcome", 
+						new Object[]{"Victor"}, 
+						Locale.getDefault()));
+	
+		System.out.println("MENSAJE RECUJPERADO: " +
+				contextoSpring.getMessage(
+						"page.index.title", 
+						null, 
+						Locale.getDefault()));		
+	}	
 }
