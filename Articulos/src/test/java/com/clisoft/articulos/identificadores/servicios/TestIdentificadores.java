@@ -51,7 +51,7 @@ public class TestIdentificadores {
 		identificador.setPrecioXVariante("S");
 		//identificadorSrv.altaIdentificador(identificador);
 		
-		//idenfizEXT.setIdentificador(identificador.getIdentificador());
+		idenfizEXT.setIdentificador(identificador.getIdentificador());
 		idenfizEXT.setCodebarAuto("CODEBAR01");
 		idenfizEXT.setDesCaract1("DESCRIPCION CARACTERISTICA 1");
 		idenfizEXT.setDesCaract2("DESCRIPCION CARACTERISTICA 2");
@@ -75,66 +75,66 @@ public class TestIdentificadores {
 		
 	}
 
-	
-	@Test
-	public void borrarIdentificador() {		
-		crearUnArticulo();	
-		identificadorSrv.bajaIdentificador("01982881T");
-	}
-	
-	
-	@Test
-	public void modificarUnCliente() {
-		crearUnArticulo();
-		Identificador identificador = new Identificador();
-		identificador.setIdentificador("01982881T");
-		identificador.setCodMarca("MARCA MODIFICADA");
-		
-		
-		identificadorSrv.modificarIdentificador(identificador);
-
-		
-	}
-	
-	@Test
-	public void buscarTodosLosClienteSinOBJ() {
-
-		
-		List<Identificador> listIdentificadores =identificadorSrv.buscarPorcodOrden3("02");				
-		System.out.println("Busqueda de orden 02");
-		for (Identificador identificadores: listIdentificadores){
-			System.out.println("Cliente con ID " +identificadores.getIdentificador());
-		}
-		
-	}
-
-	
-	@Test
-	public void buscarUnIdenficadorPorCodProveedor() {			
-				
-		List<Identificador> listIdenficadores=identificadorSrv.buscarPorycodProv("01");				
-		System.out.println("Busqueda de un cliente por id");
-		for (Identificador identificadores: listIdenficadores){
-			System.out.println("Cliente con ID " +identificadores.getIdentificador());
-		}
-	}	
-	
-	
-	
-	
-	@Test
-	public void ComprobarMensajes() {
-
-		System.out.println("MENSAJE RECUJPERADO: " +
-				contextoSpring.getMessage(
-						"page.index.welcome", 
-						new Object[]{"Victor"}, 
-						Locale.getDefault()));
-	
-		System.out.println("MENSAJE RECUJPERADO: " +
-				contextoSpring.getMessage(
-						"page.index.title", 
-						null, 
-						Locale.getDefault()));		
-	}	
+//	
+//	@Test
+//	public void borrarIdentificador() {		
+//		crearUnArticulo();	
+//		identificadorSrv.bajaIdentificador("01982881T");
+//	}
+//	
+//	
+//	@Test
+//	public void modificarUnCliente() {
+//		crearUnArticulo();
+//		Identificador identificador = new Identificador();
+//		identificador.setIdentificador("01982881T");
+//		identificador.setCodMarca("MARCA MODIFICADA");
+//		
+//		
+//		identificadorSrv.modificarIdentificador(identificador);
+//
+//		
+//	}
+//	
+//	@Test
+//	public void buscarTodosLosClienteSinOBJ() {
+//
+//		
+//		List<Identificador> listIdentificadores =identificadorSrv.buscarPorcodOrden3("02");				
+//		System.out.println("Busqueda de orden 02");
+//		for (Identificador identificadores: listIdentificadores){
+//			System.out.println("Cliente con ID " +identificadores.getIdentificador());
+//		}
+//		
+//	}
+//
+//	
+//	@Test
+//	public void buscarUnIdenficadorPorCodProveedor() {			
+//				
+//		List<Identificador> listIdenficadores=identificadorSrv.buscarPorycodProv("01");				
+//		System.out.println("Busqueda de un cliente por id");
+//		for (Identificador identificadores: listIdenficadores){
+//			System.out.println("Cliente con ID " +identificadores.getIdentificador());
+//		}
+//	}	
+//	
+//	
+//	
+//	
+//	@Test
+//	public void ComprobarMensajes() {
+//
+//		System.out.println("MENSAJE RECUJPERADO: " +
+//				contextoSpring.getMessage(
+//						"page.index.welcome", 
+//						new Object[]{"Victor"}, 
+//						Locale.getDefault()));
+//	
+//		System.out.println("MENSAJE RECUJPERADO: " +
+//				contextoSpring.getMessage(
+//						"page.index.title", 
+//						null, 
+//						Locale.getDefault()));		
+//	}	
 }

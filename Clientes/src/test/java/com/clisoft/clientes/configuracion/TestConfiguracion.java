@@ -71,8 +71,8 @@ public class TestConfiguracion {
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.format_sql", "true");
 		//properties.setProperty("hibernate.current_session_context_class", "thread");
-		//properties.setProperty("hibernate.hbm2ddl.auto", "create");
-		properties.setProperty("hibernate.hbm2ddl.auto", "validate");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create");
+		//properties.setProperty("hibernate.hbm2ddl.auto", "validate");
 		
 		entityManagerFactoryBean.setJpaProperties(properties);
 		

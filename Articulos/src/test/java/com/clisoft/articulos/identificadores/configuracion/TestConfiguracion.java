@@ -21,7 +21,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan("com.clisoft.articulos.identificadores")
+@ComponentScan("com.clisoft.articulos")
 @EnableTransactionManagement
 @EnableJpaRepositories("com.clisoft.articulos.identificadores.persistencia")
 public class TestConfiguracion {

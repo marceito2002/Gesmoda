@@ -12,12 +12,12 @@ import javax.persistence.Table;
 @Table(name="T11XX1001")
 public class IdentificadorExt {
 
-//	@Id
-//	@Column(name="IDENTIFICADOR")
-//	private String identificador;
 	@Id
-	@OneToOne(fetch=FetchType.LAZY, mappedBy="identificadorExt")
-	private Identificador identificador;
+	@Column(name="IDENTIFICADOR")
+	private String identificador;
+//	@Id
+//	@OneToOne(fetch=FetchType.LAZY, mappedBy="identificadorExt")
+//	private Identificador identificador;
 	
 	@Column(name="DESCRIP_QUINTO_ORDEN")
 	private String desOrden5;
@@ -86,11 +86,19 @@ public class IdentificadorExt {
 	private String serie3;
 
 
-	public Identificador getIdentificador() {
+//	public Identificador getIdentificador() {
+//		return identificador;
+//	}
+//
+//	public void setIdentificador(Identificador identificador) {
+//		this.identificador = identificador;
+//	}
+
+	public String getIdentificador() {
 		return identificador;
 	}
 
-	public void setIdentificador(Identificador identificador) {
+	public void setIdentificador(String identificador) {
 		this.identificador = identificador;
 	}
 
